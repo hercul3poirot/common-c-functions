@@ -18,7 +18,7 @@ void bubbleSort(int arr[], int length){
 }
 
 //Example usage of the function above: 
-void main(){
+int main(){
     int arr[] = {3,4,2}, length = sizeof(arr)/sizeof(arr[0]); 
     /*Works mostly with arrays of any size, but for some reason the length variable trips out the results (tried on different compilers)
     Best off explicitly defining length*/
@@ -31,4 +31,5 @@ void main(){
     for (int i = 0; i < length; i++){
         printf("%i ", arr[i]);
     }
+    return 0;
 }
