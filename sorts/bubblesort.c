@@ -1,27 +1,22 @@
 //This function performs a bubble sort, a sorting algorithm which works by repeatedly swapping the adjacent elements if they are in the wrong order.
-#include <stdio.h> //Required for the example, not required for the sort.
+#include <stdio.h> //Required for the driver, not required for the sort.
 
 void bubbleSort(int arr[], int length){
-    int start_position = 0, end_position = length, temp;
-    for (int i = 1; i < length; i++) {
-        while (start_position != end_position){
-            if (arr[start_position] > arr[start_position + 1]) {
-                temp = arr[start_position + 1];
-                arr[start_position + 1] = arr[start_position];
-                arr[start_position] = temp; 
+    int temp;
+    for (int i = 0; i < length - 1; i++) { //Accessing each element
+        for (int j = 0; j < length - i - 1; j++) { // Last i elements are already in place, which is why we use 'length - i - 1'
+            if (arr[j] > arr[j + 1]) {
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
             }
-            start_position++;    
-        } 
-        end_position--;
-        start_position = 0;
+        }
     }
 }
 
-//Example usage of the function above: 
+//Driver for the function above: 
 int main(){
-    int arr[] = {3,4,2}, length = sizeof(arr)/sizeof(arr[0]); 
-    /*Works mostly with arrays of any size, but for some reason the length variable trips out the results (tried on different compilers)
-    Best off explicitly defining length*/
+    int arr[] = {223, 77, 187, -148, -175, -53, 446, -499, 106, 416, 208, 220, -57, -322, -290}, length = sizeof(arr)/sizeof(arr[0]);
     printf("Original numbers: ");
     for (int i = 0; i < length; i++){
         printf("%i ", arr[i]);
